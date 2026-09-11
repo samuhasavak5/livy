@@ -595,9 +595,11 @@ Gets the log lines from this batch.
 
 ### GET /metrics/metrics
 
-Returns Codahale (Dropwizard) metrics for the Livy server, including session
-count gauges registered at startup. The metrics servlet is mounted at `/metrics`;
-the JSON payload is served at `/metrics/metrics`.
+Returns Codahale (Dropwizard) metrics for the Livy server. The metrics servlet is
+mounted at `/metrics`; the JSON payload is served at `/metrics/metrics`.
+
+Session count gauges (`livy.sessions.*`) are published only when
+`livy.server.session-metrics.enabled` is set to `true` (default: `false`).
 
 Append `?pretty=true` for formatted output.
 

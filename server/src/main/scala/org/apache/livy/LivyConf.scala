@@ -66,6 +66,13 @@ object LivyConf {
 
   val UI_ENABLED = Entry("livy.ui.enabled", true)
 
+  /**
+   * Whether to register session count gauges (livy.sessions.*) in the metrics registry
+   * exposed at /metrics/metrics. When false, the metrics servlet remains available
+   * but session gauges are not published.
+   */
+  val SESSION_METRICS_ENABLED = Entry("livy.server.session-metrics.enabled", false)
+
   val REQUEST_HEADER_SIZE = Entry("livy.server.request-header.size", 131072)
   val RESPONSE_HEADER_SIZE = Entry("livy.server.response-header.size", 131072)
 

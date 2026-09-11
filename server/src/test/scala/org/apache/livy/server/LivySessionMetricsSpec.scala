@@ -23,7 +23,7 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.mockito.MockitoSugar
 
-import org.apache.livy.LivyBaseUnitTestSuite
+import org.apache.livy.{LivyBaseUnitTestSuite, LivyConf}
 import org.apache.livy.server.batch.BatchSession
 import org.apache.livy.server.interactive.InteractiveSession
 import org.apache.livy.sessions.{BatchSessionManager, InteractiveSessionManager, SessionState}
@@ -82,6 +82,11 @@ class LivySessionMetricsSpec extends AnyFunSpec with Matchers with MockitoSugar
   }
 
   describe("LivySessionMetrics") {
+
+    it("should default session metrics to disabled in LivyConf") {
+      val conf = new LivyConf()
+      conf.getBoolean(LivyConf.SESSION_METRICS_ENABLED) shouldBe false
+    }
 
     it("should register all 18 session gauges") {
       val registry = new MetricRegistry()

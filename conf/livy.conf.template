@@ -212,6 +212,10 @@
 # If the Livy Web UI should be included in the Livy Server. Enabled by default.
 # livy.ui.enabled = true
 
+# Whether to register session count gauges (livy.sessions.*) at /metrics/metrics.
+# Disabled by default; set to true to publish session gauges for monitoring.
+# livy.server.session-metrics.enabled = false
+
 # Whether to enable Livy server access control, if it is true then all the income requests will
 # be checked if the requested user has permission.
 # livy.server.access-control.enabled = false
